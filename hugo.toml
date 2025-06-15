@@ -105,7 +105,7 @@ hasCJKLanguage = true
 	email = ""
 	link = ""
 [params.search]
-	enable = false
+	enable = true
 	# type of search engine ["lunr", "algolia"]
 	# 搜索引擎的类型 ["lunr", "algolia"]
 	type = "algolia"
