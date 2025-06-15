@@ -1,8 +1,10 @@
 +++
-date = '2025-06-15T01:34:38+08:00'
+date = '2025-06-14'
 draft = false
-title = 'Serverless'
+title = 'Serverless 模板'
 tags = ["serverless", "云原生", "架构"]
+categories = ["技术总结"]
+comments = true
 +++
 
 # 什么是 **Serverless**
