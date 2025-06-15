@@ -26,13 +26,18 @@ jobs:
       - name: Build
         run: hugo --minify
 
+      - name: Install algolia-uploader
+        run: npm install -D algolia-uploader
+
+      - name: Create .env file for algolia-uploader
+        run: |
+          echo "ALGOLIA_APP_ID=${{ secrets.ALGOLIA_APP_ID }}" >> .env
+          echo "ALGOLIA_ADMIN_API_KEY=${{ secrets.ALGOLIA_ADMIN_API_KEY }}" >> .env
+          echo "ALGOLIA_INDEX_NAME=${{ secrets.ALGOLIA_INDEX_NAME }}" >> .env
+          echo "DATA_DIR=public" >> .env
+
       - name: Upload index to Algolia
-        uses: wangchucheng/algolia-uploader@master
-        with:
-          app_id: ${{ secrets.ALGOLIA_APP_ID }}
-          admin_key: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
-          index_name: ${{ secrets.ALGOLIA_INDEX_NAME }}
-          index_file_path: public/algolia.json
+        run: npx algolia-uploader
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
