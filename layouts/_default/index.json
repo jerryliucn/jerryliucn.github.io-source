@@ -1,19 +1,14 @@
-{
-  "lang": "{{ .Site.Language.Lang }}",
-  "title": {{ .Site.Title | jsonify }},
-  "algoliaIndex": {{ with .Site.Params.search.algolia.index }}{{ . | jsonify }}{{ else }}null{{ end }},
-  "posts": [
-    {{- $pages := .Site.RegularPages -}}
-    {{- range $i, $p := $pages -}}
-      {{- if gt $i 0 }},{{ end -}}
-      {
-        "title": {{ $p.Title | jsonify }},
-        "url": {{ $p.RelPermalink | jsonify }},
-        "tags": {{ $p.Params.tags | jsonify }},
-        "categories": {{ $p.Params.categories | jsonify }},
-        "date": {{ $p.Date | jsonify }},
-        "draft": {{ $p.Draft | jsonify }}
-      }
-    {{- end -}}
-  ]
-}
+{{- $pages := where .Site.RegularPages "Type" "in" site.Params.mainSections -}}
+[
+{{- range $index, $page := $pages }}
+  {{- if $index }},{{ end }}
+  {
+    "objectID": "{{ $page.Permalink }}",
+    "title": {{ $page.Title | jsonify }},
+    "description": {{ $page.Params.description | default $page.Summary | jsonify }},
+    "content": {{ $page.Plain | jsonify }},
+    "url": "{{ $page.RelPermalink }}",
+    "date": "{{ $page.Date }}"
+  }
+{{- end }}
+]
