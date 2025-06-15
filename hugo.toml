@@ -64,11 +64,39 @@ defaultContentLanguageInSubdir = true
 
 [params]
   mainSections = ["posts"]
-
-[params.author]
-  name = "Jerry Liu CN"
-  email = "liuyuwei1989@yeah.net"
-  link = "https://jerryliucn.github.io/"
+	[params.author]
+		name = "Jerry Liu CN"
+		email = "liuyuwei1989@yeah.net"
+		link = "https://jerryliucn.github.io/"
+	[params.page.comment]
+		enable = true
+		type = "giscus"
+		[params.page.comment.giscus]
+			enable = true
+			repo = "jerryliucn/jerryliucn.github.io"
+			repoId = "R_kgDOO7oqFQ"
+			category = "Announcements"
+			categoryId = "DIC_kwDOO7oqFc4Crhic"
+			mapping = "pathname"
+			reactionsEnabled = "1"
+			emitMetadata = "0"
+			inputPosition = "bottom"
+			lazyLoading = true
+			lightTheme = "light"
+			darkTheme = "dark"
+	[params.page.toc]
+		enable = true
+		keepStatic = false
+		auto = false
+  [params.search]
+    enable = true
+    type = "algolia"
+    contentLength = 4000
+    placeholder = ""
+    maxResultLength = 10
+    snippetLength = 30
+    highlightTag = "em"
+    absoluteURL = false
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
@@ -84,24 +112,3 @@ defaultContentLanguageInSubdir = true
 [taxonomies]
   tag = "tags"
   category = "categories"
-
-[params.page.comment]
-  enable = true
-  type = "giscus"
-  [params.page.comment.giscus]
-    enable = true
-    repo = "jerryliucn/jerryliucn.github.io"
-    repoId = "R_kgDOO7oqFQ"
-    category = "Announcements"
-    categoryId = "DIC_kwDOO7oqFc4Crhic"
-    mapping = "pathname"
-    reactionsEnabled = "1"
-    emitMetadata = "0"
-    inputPosition = "bottom"
-    lazyLoading = true
-    lightTheme = "light"
-    darkTheme = "dark"
-[params.page.toc]
-  enable = true
-  keepStatic = false
-  auto = false
