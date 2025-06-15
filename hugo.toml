@@ -88,17 +88,16 @@ defaultContentLanguageInSubdir = true
 [params.page.comment]
   enable = true
   type = "giscus"
-
-[params.page.comment.giscus]
-  repo = "jerryliucn/jerryliucn.github.io"
-  repoID = "R_kgDOO7oqFQ"
-  category = "General"
-  categoryID = "DIC_kwDOO7oqFc4Crhid"
-  mapping = "pathname"
-  strict = 0
-  reactionsEnabled = 1
-  emitMetadata = 1
-  inputPosition = "bottom"
-  theme = "preferred_color_scheme"
-  lang = "zh-CN"
-  loading = "lazy"
+  [params.page.comment.giscus]
+    enable = true
+    repo = "jerryliucn/jerryliucn.github.io"
+    repoId = "R_kgDOO7oqFQ"
+    category = "Announcements"
+    categoryId = "DIC_kwDOO7oqFc4Crhic"
+    mapping = "pathname"
+    reactionsEnabled = "1"
+    emitMetadata = "1"
+    inputPosition = "bottom"
+    lazyLoading = false
+    lightTheme = "light"
+    darkTheme = "dark"
