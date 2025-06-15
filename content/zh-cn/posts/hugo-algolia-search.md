@@ -6,8 +6,8 @@ tags = ["github", "blog", "algolia", "search"]
 categories = ["技巧"]
 +++
 
-# Hugo 集成 Algolia 搜索技巧
-
+# 文章简介
+## 简介
 本文将手把手带你在 GitHub 上搭建高效、现代化的个人博客，内容涵盖：
 
 - 博客框架选型：基于 [Hugo](https://gohugo.io/) 静态网站生成器，配合美观强大的 [LoveIt](https://hugoloveit.com/) 主题。

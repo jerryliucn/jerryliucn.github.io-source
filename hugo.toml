@@ -96,8 +96,12 @@ defaultContentLanguageInSubdir = true
     categoryId = "DIC_kwDOO7oqFc4Crhic"
     mapping = "pathname"
     reactionsEnabled = "1"
-    emitMetadata = "1"
+    emitMetadata = "0"
     inputPosition = "bottom"
-    lazyLoading = false
+    lazyLoading = true
     lightTheme = "light"
     darkTheme = "dark"
+[params.page.toc]
+  enable = true
+  keepStatic = false
+  auto = false
