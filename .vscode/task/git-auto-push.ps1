@@ -1,7 +1,10 @@
+param(
+    [string]$commitMsg = "auto commit and push"
+)
 $maxRetries = 10
 $retry = 0
 git add .
-git commit -m "auto commit and push"
+git commit -m "$commitMsg"
 if ($LASTEXITCODE -ne 0) {
     Write-Host 'Nothing to commit.'
 } else {

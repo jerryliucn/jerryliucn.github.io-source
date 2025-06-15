@@ -9,9 +9,18 @@
 				"-ExecutionPolicy",
 				"Bypass",
 				"-File",
-				"${workspaceFolder}/.vscode/task/git-auto-push.ps1"
+				"${workspaceFolder}/.vscode/task/git-auto-push.ps1",
+				"-commitMsg",
+				"${input:commitMessage}"
 			],
 			"group": "build"
+		}
+	],
+	"inputs": [
+		{
+			"id": "commitMessage",
+			"type": "promptString",
+			"description": "请输入本次提交的 commit message"
 		}
 	]
 }
