@@ -35,11 +35,8 @@ jobs:
         run: npm install -g @algolia/cli
 
       - name: Upload index to Algolia
-        env:
-          ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APP_ID }}
-          ALGOLIA_ADMIN_API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
         run: |
-          algolia import public/algolia.json --index ${{ secrets.ALGOLIA_INDEX_NAME }}
+          algolia import -s public/algolia.json -a ${{ secrets.ALGOLIA_APP_ID }} -k ${{ secrets.ALGOLIA_ADMIN_API_KEY }} -n ${{ secrets.ALGOLIA_INDEX_NAME }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
