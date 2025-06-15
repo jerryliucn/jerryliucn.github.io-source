@@ -1,7 +1,7 @@
 param(
     [string]$commitMsg = "auto commit and push"
 )
-$maxRetries = 10
+$maxRetries = 30
 $retry = 0
 git add .
 git commit -m "$commitMsg"
