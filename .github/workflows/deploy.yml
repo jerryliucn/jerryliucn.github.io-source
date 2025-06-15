@@ -37,8 +37,8 @@ jobs:
           echo "DATA_DIR=public/zh-cn" >> .env
 
       - name: Upload zh Algolia index
-        run: algolia-uploader
-
+        run: npx algolia-uploader
+        
       - name: Create .env for en Algolia index
         run: |
           echo "ALGOLIA_APP_ID=${{ secrets.ALGOLIA_APP_ID }}" > .env
@@ -47,7 +47,7 @@ jobs:
           echo "DATA_DIR=public/en" >> .env
 
       - name: Upload en Algolia index
-        run: algolia-uploader
+        run: npx algolia-uploader
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
