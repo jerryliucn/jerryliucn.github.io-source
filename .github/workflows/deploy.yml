@@ -36,11 +36,11 @@ jobs:
 
       - name: Upload index to Algolia
         env:
-          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
-          ALGOLIA_ADMIN_API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
-          ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
+          HUGO_ALGOLIA_APPID: ${{ secrets.ALGOLIA_APP_ID }}
+          HUGO_ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
+          HUGO_ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
         run: |
-          npx hugo-algolia --application-id=$ALGOLIA_APP_ID --api-key=$ALGOLIA_ADMIN_API_KEY --index-name=$ALGOLIA_INDEX_NAME
+          hugo-algolia
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

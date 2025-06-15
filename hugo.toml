@@ -133,3 +133,8 @@ hasCJKLanguage = true
 		searchKey = "b702a3cc1822393de89081d6403273c1"
 [outputs]
 	home = ["HTML", "RSS", "JSON"]
+[outputFormats.JSON]
+  mediaType = "application/json"
+  baseName = "index"
+  isPlainText = true
+  notAlternative = true
