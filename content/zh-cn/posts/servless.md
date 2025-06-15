@@ -7,10 +7,10 @@ categories = ["技术总结"]
 comments = true
 +++
 
-# 什么是 **Serverless**
+## 什么是 **Serverless**
 Serverless 是一种让开发者无需关心底层服务器和运维细节，只需专注于业务逻辑的云计算服务模式。
 
-# 为什么要有 Serverless
+## 为什么要有 Serverless
 
 1. **降低运维成本**
    - 开发者无需管理服务器、操作系统、网络等底层资源，云平台自动完成部署、扩缩容和故障恢复。

@@ -5,10 +5,10 @@ title = 'Serverless'
 tags = ["serverless", "cloud native", "architecture"]
 +++
 
-# What is **Serverless**
+## What is **Serverless**
 Serverless is a cloud computing model that allows developers to focus solely on business logic without worrying about underlying servers and operational details.
 
-# Why Serverless
+## Why Serverless
 
 1. **Reduced Operational Costs**
    - Developers do not need to manage servers, operating systems, or networks. The cloud platform handles deployment, auto-scaling, and fault recovery automatically.

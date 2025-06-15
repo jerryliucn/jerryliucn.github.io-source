@@ -6,7 +6,7 @@ tags = ["github", "blog", "algolia", "search"]
 categories = ["Tips"]
 +++
 
-# Hugo Algolia Search Integration Guide
+## Hugo Algolia Search Integration Guide
 
 This tutorial will guide you to build a modern personal blog on GitHub, including:
 

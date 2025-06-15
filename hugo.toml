@@ -103,5 +103,5 @@ defaultContentLanguageInSubdir = true
     darkTheme = "dark"
 [params.page.toc]
   enable = true
-  keepStatic = true
+  keepStatic = false
   auto = false
