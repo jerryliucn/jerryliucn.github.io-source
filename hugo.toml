@@ -135,6 +135,6 @@ hasCJKLanguage = true
 	home = ["HTML", "RSS", "JSON"]
 [outputFormats.JSON]
   mediaType = "application/json"
-  baseName = "index"
+  baseName = "algolia"
   isPlainText = true
   notAlternative = true
