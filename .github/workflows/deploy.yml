@@ -26,14 +26,6 @@ jobs:
       - name: Build
         run: hugo --minify
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install Algolia CLI
-        run: npm install -g @algolia/cli
-
       - name: Upload index to Algolia
         uses: wangchucheng/algolia-uploader@master
         with:
