@@ -26,6 +26,22 @@ jobs:
       - name: Build
         run: hugo --minify
 
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install hugo-algolia
+        run: npm install -g hugo-algolia
+
+      - name: Upload index to Algolia
+        env:
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_ADMIN_API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
+          ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
+        run: |
+          npx hugo-algolia --appId=$ALGOLIA_APP_ID --apiKey=$ALGOLIA_ADMIN_API_KEY --indexName=$ALGOLIA_INDEX_NAME
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
