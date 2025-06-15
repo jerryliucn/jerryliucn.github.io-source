@@ -4,7 +4,7 @@ draft = false
 title = 'Serverless 模板'
 tags = ["serverless", "云原生", "架构"]
 categories = ["技术总结"]
-comments = true
+og_title = "serverless"
 +++
 
 ## 什么是 **Serverless**
