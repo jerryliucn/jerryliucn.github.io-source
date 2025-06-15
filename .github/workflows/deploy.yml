@@ -40,7 +40,7 @@ jobs:
           ALGOLIA_ADMIN_API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
           ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
         run: |
-          npx hugo-algolia --appId=$ALGOLIA_APP_ID --apiKey=$ALGOLIA_ADMIN_API_KEY --indexName=$ALGOLIA_INDEX_NAME
+          npx hugo-algolia --application-id=$ALGOLIA_APP_ID --api-key=$ALGOLIA_ADMIN_API_KEY --index-name=$ALGOLIA_INDEX_NAME
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
