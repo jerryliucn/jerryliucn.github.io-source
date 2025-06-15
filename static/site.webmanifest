@@ -1,0 +1,16 @@
+{
+  "name": "Jerry Liu CN's Blog",
+  "short_name": "JerryBlog",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#5e72e4",
+  "description": "A personal blog powered by Hugo and LoveIt theme.",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}

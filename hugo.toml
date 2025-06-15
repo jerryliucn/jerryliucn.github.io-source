@@ -1,140 +1,104 @@
 baseURL = "https://jerryliucn.github.io/"
-
-
-
-# 更改使用 Hugo 构建网站时使用的默认主题
-
 theme = "LoveIt"
+defaultContentLanguage = "zh-cn"
+defaultContentLanguageInSubdir = true
 
-
-
-# 网站标题
-
-title = "我的全新 Hugo 网站"
-
-
-
-# 网站语言, 仅在这里 CN 大写 ["en", "zh-CN", "fr", "pl", ...]
-
-languageCode = "zh-CN"
-
-# 语言名称 ["English", "简体中文", "Français", "Polski", ...]
-
-languageName = "简体中文"
-
-# 是否包括中日韩文字
-
-hasCJKLanguage = true
-
-
-
-# 菜单配置
-
-[menu]
-
-  [[menu.main]]
-
+[languages]
+  [languages.en]
     weight = 1
+    title = "Jerry Liu CN's Blog"
+    languageCode = "en"
+    languageName = "English"
+    contentDir = "content/en"
+    hasCJKLanguage = false
+    [languages.en.params]
+      [languages.en.params.header.title]
+        name = "Jerry Liu CN's Blog"
+      [languages.en.params.home.profile]
+        subtitle = "Do not grieve for the past, nor yearn for the future. If you live in the present, your mind will be clear and joyful."
+      [languages.en.params.search.algolia]
+        index = "jerryliucn-github-io-en"
+        appID = "YYG96ZVJZO"
+        searchKey = "b702a3cc1822393de89081d6403273c1"
+    [[languages.en.menu.main]]
+      weight = 1
+      name = "Posts"
+      url = "/posts/"
+    [[languages.en.menu.main]]
+      weight = 2
+      name = "Tags"
+      url = "/tags/"
+    [[languages.en.menu.main]]
+      weight = 3
+      name = "Categories"
+      url = "/categories/"
 
-    identifier = "posts"
-
-    # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
-
-    pre = ""
-
-    # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
-
-    post = ""
-
-    name = "文章"
-
-    url = "/posts/"
-
-    # 当你将鼠标悬停在此菜单链接上时, 将显示的标题
-
-    title = ""
-
-  [[menu.main]]
-
+  [languages.zh-cn]
     weight = 2
+    title = "Jerry Liu CN 的博客"
+    languageCode = "zh-CN"
+    languageName = "简体中文"
+    contentDir = "content/zh-cn"
+    hasCJKLanguage = true
+    [languages.zh-cn.params]
+      [languages.zh-cn.params.header.title]
+        name = "Jerry Liu CN's 博客"
+      [languages.zh-cn.params.home.profile]
+        subtitle = "不悲过去事，未来勿憧憬，若持身现在，颜色即朗悦。"
+      [languages.zh-cn.params.search.algolia]
+        index = "jerryliucn-github-io-zh"
+        appID = "YYG96ZVJZO"
+        searchKey = "b702a3cc1822393de89081d6403273c1"
+    [[languages.zh-cn.menu.main]]
+      weight = 1
+      name = "文章"
+      url = "/posts/"
+    [[languages.zh-cn.menu.main]]
+      weight = 2
+      name = "标签"
+      url = "/tags/"
+    [[languages.zh-cn.menu.main]]
+      weight = 3
+      name = "分类"
+      url = "/categories/"
 
-    identifier = "tags"
-
-    pre = ""
-
-    post = ""
-
-    name = "标签"
-
-    url = "/tags/"
-
-    title = ""
-
-  [[menu.main]]
-
-    weight = 3
-
-    identifier = "categories"
-
-    pre = ""
-
-    post = ""
-
-    name = "分类"
-
-    url = "/categories/"
-
-    title = ""
-
-
-
-# Hugo 解析文档的配置
-
-[markup]
-
-  # 语法高亮设置 (https://gohugo.io/content-management/syntax-highlighting)
-
-  [markup.highlight]
-
-    # false 是必要的设置 (https://github.com/dillonzq/LoveIt/issues/158)
-
-    noClasses = false
+[params]
+  mainSections = ["posts"]
 
 [params.author]
-	name = "Jerry Liu CN"
-	email = ""
-	link = ""
-[params.search]
-	enable = true
-	# type of search engine ["lunr", "algolia"]
-	# 搜索引擎的类型 ["lunr", "algolia"]
-	type = "algolia"
-	# max index length of the chunked content
-	# 文章内容最长索引长度
-	contentLength = 4000
-	# placeholder of the search bar
-	# 搜索框的占位提示语
-	placeholder = ""
-	# max number of results length
-	# 最大结果数目
-	maxResultLength = 10
-	# snippet length of the result
-	# 结果内容片段长度
-	snippetLength = 30
-	# HTML tag name of the highlight part in results
-	# 搜索结果中高亮部分的 HTML 标签
-	highlightTag = "em"
-	# whether to use the absolute URL based on the baseURL in search index
-	# 是否在搜索索引中使用基于 baseURL 的绝对路径
-	absoluteURL = false
-	[params.search.algolia]
-		index = "jerryliucn.github.io"
-		appID = "YYG96ZVJZO"
-		searchKey = "b702a3cc1822393de89081d6403273c1"
+  name = "Jerry Liu CN"
+  email = "liuyuwei1989@yeah.net"
+  link = "https://jerryliucn.github.io/"
+
 [outputs]
-	home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+
 [outputFormats.JSON]
   mediaType = "application/json"
   baseName = "algolia"
   isPlainText = true
   notAlternative = true
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[params.page.comment]
+  enable = true
+  type = "giscus"
+
+[params.page.comment.giscus]
+  repo = "jerryliucn/jerryliucn.github.io"
+  repoID = "R_kgDOO7oqFQ"
+  category = "General"
+  categoryID = "DIC_kwDOO7oqFc4Crhid"
+  mapping = "pathname"
+  strict = 0
+  reactionsEnabled = 1
+  emitMetadata = 1
+  inputPosition = "bottom"
+  theme = "preferred_color_scheme"
+  lang = "zh-CN"
+  loading = "lazy"
