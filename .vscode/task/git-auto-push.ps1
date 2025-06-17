@@ -5,6 +5,7 @@ param(
 $maxRetries = 30
 $retry = 0
 
+
 function Flush-DnsCache {
     Write-Host 'Flushing DNS cache...'
     try {
@@ -23,9 +24,9 @@ function GitPush-WithCustomIp {
         [string]$ip
     )
     if ($ip -ne "") {
-        Write-Host "Temporarily set github.com to $ip for git push."
+        Write-Host "Temporarily set github.com to $ip for git push. (SSL verify disabled)"
         git config --global url."https://$ip/".insteadOf "https://github.com/"
-        git -c http.extraHeader="Host: github.com" push origin main
+        git -c http.sslVerify=false -c http.extraHeader="Host: github.com" push origin main
         $result = $LASTEXITCODE
         git config --global --unset url."https://$ip/".insteadOf
         return $result
