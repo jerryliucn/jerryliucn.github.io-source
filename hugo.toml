@@ -1,15 +1,18 @@
+
+
 baseURL = "https://jerryliucn.github.io/"
 theme = "LoveIt"
 defaultContentLanguage = "zh-cn"
-defaultContentLanguageInSubdir = true
 
+[module]
+  [module.hugoVersion]
+    min = "0.128.0"
 [languages]
   [languages.en]
     weight = 1
     title = "Jerry Liu CN's Blog"
     languageCode = "en"
     languageName = "English"
-    contentDir = "content/en"
     hasCJKLanguage = false
     [languages.en.params]
       [languages.en.params.header.title]
@@ -38,7 +41,6 @@ defaultContentLanguageInSubdir = true
     title = "Jerry Liu CN 的博客"
     languageCode = "zh-CN"
     languageName = "简体中文"
-    contentDir = "content/zh-cn"
     hasCJKLanguage = true
     [languages.zh-cn.params]
       [languages.zh-cn.params.header.title]
