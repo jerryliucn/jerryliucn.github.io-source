@@ -14,11 +14,12 @@ jobs:
         with:
           submodules: true
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: '0.147.8'
-          extended: true
+      - name: Download Hugo extended
+        run: |
+          Invoke-WebRequest -Uri "https://github.com/gohugoio/hugo/releases/download/v0.147.8/hugo_extended_withdeploy_0.147.8_windows-amd64.zip" -OutFile "hugo.zip"
+          Expand-Archive -Path "hugo.zip" -DestinationPath "."
+          $env:Path = "$PWD" + ";" + $env:Path
+          hugo version
 
       - name: Clean public directory
         run: |
