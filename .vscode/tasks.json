@@ -11,7 +11,9 @@
 				"-File",
 				"${workspaceFolder}/.vscode/task/git-auto-push.ps1",
 				"-commitMsg",
-				"${input:commitMessage}"
+				"${input:commitMessage}",
+				"-githubIp",
+				"${input:githubIp}"
 			],
 			"group": "build"
 		},
@@ -31,6 +33,12 @@
 			"id": "commitMessage",
 			"type": "promptString",
 			"description": "请输入本次提交的 commit message"
+		},
+		{
+			"id": "githubIp",
+			"type": "promptString",
+			"description": "如需自定义 GitHub IP，请输入（留空为默认）",
+			"default": ""
 		}
 	]
 }
