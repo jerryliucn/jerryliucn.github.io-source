@@ -74,61 +74,11 @@ jobs:
     #       Write-Output "Public directory structure:"
     #       tree public
       - name: Build with Hugo (production)
-<<<<<<< HEAD
         run: hugo --environment production --noBuildLock
       - name: Show zh-cn post index.html
         run: |
           Write-Output "public/zh-cn/posts/hugo-algolia-search/index.html content:"
           Get-Content public/zh-cn/posts/hugo-algolia-search/index.html
-=======
-        run: hugo --environment production
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install algolia-uploader
-        run: npm install -D algolia-uploader
-
-      - name: Create .env for zh Algolia index
-        run: |
-          echo "ALGOLIA_APP_ID=${{ secrets.ALGOLIA_APP_ID }}" >> .env
-          echo "ALGOLIA_ADMIN_API_KEY=${{ secrets.ALGOLIA_ADMIN_API_KEY }}" >> .env
-          echo "ALGOLIA_INDEX_NAME=${{ secrets.ALGOLIA_INDEX_NAME_ZH }}" >> .env
-          echo "DATA_DIR=public/zh-cn" >> .env
-
-      - name: Upload zh Algolia index
-        run: npx algolia-uploader
-
-      - name: Clean .env before creating for en Algolia index
-        run: |
-          if [ -f .env ]; then rm .env; fi
-
-      - name: Create .env for en Algolia index
-        run: |
-          echo "ALGOLIA_APP_ID=${{ secrets.ALGOLIA_APP_ID }}" >> .env
-          echo "ALGOLIA_ADMIN_API_KEY=${{ secrets.ALGOLIA_ADMIN_API_KEY }}" >> .env
-          echo "ALGOLIA_INDEX_NAME=${{ secrets.ALGOLIA_INDEX_NAME_EN }}" >> .env
-          echo "DATA_DIR=public/en" >> .env
-
-      - name: Upload en Algolia index
-        run: npx algolia-uploader
-
-      - name: Show public directory structure
-        run: |
-          echo "Public directory structure:" 
-          tree public || find public
-
-      - name: Show zh-cn post index.html
-        run: |
-          echo "public/zh-cn/posts/hugo-algolia-search/index.html content:"
-          cat public/zh-cn/posts/hugo-algolia-search/index.html
-
-      - name: Build with Hugo (production)
-        run: hugo --environment production
-
->>>>>>> parent of 11aaf9f (重新构建)
       - name: Show LoveIt theme directory structure
         run: |
           echo "themes/LoveIt directory structure:"
