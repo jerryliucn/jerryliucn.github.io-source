@@ -3,11 +3,23 @@ param(
 )
 $maxRetries = 30
 $retry = 0
+
+function Flush-DnsCache {
+    Write-Host 'Flushing DNS cache...'
+    try {
+        ipconfig /flushdns | Out-Null
+        Write-Host 'DNS cache flushed.'
+    } catch {
+        Write-Host 'Failed to flush DNS cache.'
+    }
+}
+
 git add .
 git commit -m "$commitMsg"
 if ($LASTEXITCODE -ne 0) {
     Write-Host 'Nothing to commit. Try pushing any unpushed commits.'
     do {
+        Flush-DnsCache
         git push origin main
         if ($LASTEXITCODE -eq 0) {
             Write-Host 'Push succeeded.'
@@ -23,6 +35,7 @@ if ($LASTEXITCODE -ne 0) {
     }
 } else {
     do {
+        Flush-DnsCache
         git push origin main
         if ($LASTEXITCODE -eq 0) {
             Write-Host 'Push succeeded.'

@@ -20,7 +20,6 @@ og_title = "hugo-algolia-search"
 本文不仅想告诉各位看官看其然，也试图想让各位看官知其所以然。这样有助于大家在脱离我使用的这套工具以外，探索其它工具的使用，利用GitHub搭建出属于自己博客。
 
 ##  GitHub 博客搭建流程示意图
-<!-- 画一个使用hugo搭建博客的流程图 -->
 {{< mermaid >}}
 flowchart TD
     A[Install Hugo] --> B[Create GitHub source repo]
