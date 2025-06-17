@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
@@ -22,7 +22,7 @@ jobs:
 
       - name: Clean public directory
         run: |
-          if [ -d public ]; then rm -rf public/*; fi
+          if (Test-Path public) { Remove-Item -Recurse -Force public/* }
 
       - name: Build with Hugo (production)
         run: hugo --environment production
@@ -37,44 +37,44 @@ jobs:
 
       - name: Create .env for zh Algolia index
         run: |
-          echo "ALGOLIA_APP_ID=${{ secrets.ALGOLIA_APP_ID }}" >> .env
-          echo "ALGOLIA_ADMIN_API_KEY=${{ secrets.ALGOLIA_ADMIN_API_KEY }}" >> .env
-          echo "ALGOLIA_INDEX_NAME=${{ secrets.ALGOLIA_INDEX_NAME_ZH }}" >> .env
-          echo "DATA_DIR=public/zh-cn" >> .env
+          Add-Content .env "ALGOLIA_APP_ID=${{ secrets.ALGOLIA_APP_ID }}"
+          Add-Content .env "ALGOLIA_ADMIN_API_KEY=${{ secrets.ALGOLIA_ADMIN_API_KEY }}"
+          Add-Content .env "ALGOLIA_INDEX_NAME=${{ secrets.ALGOLIA_INDEX_NAME_ZH }}"
+          Add-Content .env "DATA_DIR=public/zh-cn"
 
       - name: Upload zh Algolia index
         run: npx algolia-uploader
 
       - name: Clean .env before creating for en Algolia index
         run: |
-          if [ -f .env ]; then rm .env; fi
+          if (Test-Path .env) { Remove-Item .env }
 
       - name: Create .env for en Algolia index
         run: |
-          echo "ALGOLIA_APP_ID=${{ secrets.ALGOLIA_APP_ID }}" >> .env
-          echo "ALGOLIA_ADMIN_API_KEY=${{ secrets.ALGOLIA_ADMIN_API_KEY }}" >> .env
-          echo "ALGOLIA_INDEX_NAME=${{ secrets.ALGOLIA_INDEX_NAME_EN }}" >> .env
-          echo "DATA_DIR=public/en" >> .env
+          Add-Content .env "ALGOLIA_APP_ID=${{ secrets.ALGOLIA_APP_ID }}"
+          Add-Content .env "ALGOLIA_ADMIN_API_KEY=${{ secrets.ALGOLIA_ADMIN_API_KEY }}"
+          Add-Content .env "ALGOLIA_INDEX_NAME=${{ secrets.ALGOLIA_INDEX_NAME_EN }}"
+          Add-Content .env "DATA_DIR=public/en"
 
       - name: Upload en Algolia index
         run: npx algolia-uploader
 
       - name: Show public directory structure
         run: |
-          echo "Public directory structure:" 
-          tree public || find public
+          Write-Output "Public directory structure:"
+          tree public
 
       - name: Show zh-cn post index.html
         run: |
-          echo "public/zh-cn/posts/hugo-algolia-search/index.html content:"
-          cat public/zh-cn/posts/hugo-algolia-search/index.html
+          Write-Output "public/zh-cn/posts/hugo-algolia-search/index.html content:"
+          Get-Content public/zh-cn/posts/hugo-algolia-search/index.html
 
       - name: Build with Hugo (production)
         run: hugo --environment production
 
       - name: Show LoveIt theme directory structure
         run: |
-          echo "themes/LoveIt directory structure:"
+          Write-Output "themes/LoveIt directory structure:"
           tree themes/LoveIt || find themes/LoveIt
 
       - name: Deploy to GitHub Pages

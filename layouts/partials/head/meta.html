@@ -1,9 +1,0 @@
-{{- $params := .Scratch.Get "params" -}}
-
-<meta name="Description" content="{{ $params.description | default .Site.Params.description }}">
-
-{{/* 你的自定义 og:title 配置，优先 og_title，没有则用 title */}}
-<meta property="og:title" content="{{ with .Params.og_title }}{{ . }}{{ else }}{{ .Title }}{{ end }}">
-
-{{/* 引用主题原有 meta 配置 */}}
-{{ partial "head/meta-base.html" . }}
