@@ -69,13 +69,8 @@ jobs:
     #     run: |
     #       Write-Output "Public directory structure:"
     #       tree public
-
-
-
       - name: Build with Hugo (production)
         run: hugo --environment production --noBuildLock
-
-		
       - name: Show zh-cn post index.html
         run: |
           Write-Output "public/zh-cn/posts/hugo-algolia-search/index.html content:"
