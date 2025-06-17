@@ -97,7 +97,8 @@ defaultContentLanguageInSubdir = true
     snippetLength = 30
     highlightTag = "em"
     absoluteURL = false
-
+  [params.cdn]
+    data = "jsdelivr.yml"
 [outputs]
   home = ["HTML", "RSS", "JSON"]
   section = ["HTML", "RSS"]

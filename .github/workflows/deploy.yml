@@ -70,10 +70,10 @@ jobs:
     #       Write-Output "Public directory structure:"
     #       tree public
 
-    #   - name: Show zh-cn post index.html
-    #     run: |
-    #       Write-Output "public/zh-cn/posts/hugo-algolia-search/index.html content:"
-    #       Get-Content public/zh-cn/posts/hugo-algolia-search/index.html
+      - name: Show zh-cn post index.html
+        run: |
+          Write-Output "public/zh-cn/posts/hugo-algolia-search/index.html content:"
+          Get-Content public/zh-cn/posts/hugo-algolia-search/index.html
 
       - name: Build with Hugo (production)
         run: hugo --environment production --noBuildLock
