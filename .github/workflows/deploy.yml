@@ -74,6 +74,7 @@ jobs:
 
       - name: Build with Hugo (production)
         run: hugo --environment production --noBuildLock
+
 		
       - name: Show zh-cn post index.html
         run: |
