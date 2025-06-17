@@ -14,12 +14,14 @@ jobs:
         with:
           submodules: true
 
-      - name: Debug Hugo Installation
+      - name: Download Hugo extended
         run: |
-          Write-Output "Hugo directory structure:"
-          tree hugoApp || dir hugoApp
-          Write-Output "Hugo path environment variable:"
-          $env:GITHUB_PATH
+          Invoke-WebRequest -Uri "https://github.com/gohugoio/hugo/releases/download/v0.147.8/hugo_extended_withdeploy_0.147.8_windows-amd64.zip" -OutFile "hugo.zip"
+          New-Item -ItemType Directory -Path hugoApp
+          Expand-Archive -Path "hugo.zip" -DestinationPath "hugoApp"
+          echo "$PWD/hugoApp" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          $env:Path = "$PWD/hugoApp;$env:Path"
+          hugo version
 
       - name: Clean public directory
         run: |
