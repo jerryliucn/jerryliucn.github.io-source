@@ -1,5 +1,6 @@
 param(
-    [string]$commitMsg = "auto commit and push"
+    [string]$commitMsg = "auto commit and push",
+    [string]$githubIp = ""
 )
 $maxRetries = 30
 $retry = 0
@@ -16,12 +17,30 @@ function Flush-DnsCache {
 
 git add .
 git commit -m "$commitMsg"
+
+function GitPush-WithCustomIp {
+    param(
+        [string]$ip
+    )
+    if ($ip -ne "") {
+        Write-Host "Temporarily set github.com to $ip for git push."
+        git config --global url."https://$ip/".insteadOf "https://github.com/"
+        git -c http.extraHeader="Host: github.com" push origin main
+        $result = $LASTEXITCODE
+        git config --global --unset url."https://$ip/".insteadOf
+        return $result
+    } else {
+        git push origin main
+        return $LASTEXITCODE
+    }
+}
+
 if ($LASTEXITCODE -ne 0) {
     Write-Host 'Nothing to commit. Try pushing any unpushed commits.'
     do {
         Flush-DnsCache
-        git push origin main
-        if ($LASTEXITCODE -eq 0) {
+        $pushResult = GitPush-WithCustomIp $githubIp
+        if ($pushResult -eq 0) {
             Write-Host 'Push succeeded.'
             break
         } else {
@@ -36,8 +55,8 @@ if ($LASTEXITCODE -ne 0) {
 } else {
     do {
         Flush-DnsCache
-        git push origin main
-        if ($LASTEXITCODE -eq 0) {
+        $pushResult = GitPush-WithCustomIp $githubIp
+        if ($pushResult -eq 0) {
             Write-Host 'Push succeeded.'
             break
         } else {
