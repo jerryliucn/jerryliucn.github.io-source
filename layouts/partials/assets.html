@@ -121,11 +121,14 @@
 {{- end -}}
 
 {{- /* mermaid */ -}}
+{{ warnf "assets.html: before mermaid: .Scratch.Get this = %v" (.Scratch.Get "this") }}
 {{- if (.Scratch.Get "this").mermaid -}}
+    {{ warnf "assets.html: inside mermaid: .Scratch.Get this = %v" (.Scratch.Get "this") }}
     {{- $source := $cdn.mermaidJS | default "lib/mermaid/mermaid.min.js" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
     {{- $_ := (resources.Get "lib/mermaid/mermaid.min.js.map").RelPermalink -}}
 {{- end -}}
+{{ warnf "assets.html: after mermaid: .Scratch.Get this = %v" (.Scratch.Get "this") }}
 
 {{- /* ECharts */ -}}
 {{- if (.Scratch.Get "this").echarts -}}

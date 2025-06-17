@@ -23,17 +23,17 @@ og_title = "hugo-algolia-search"
 <!-- 画一个使用hugo搭建博客的流程图 -->
 {{< mermaid >}}
 flowchart TD
-    A[安装 Hugo] --> B[创建 GitHub 源码仓库]
-    B --> C[创建 GitHub 发布仓库]
-    C --> D[Hugo 初始化博客]
-    D --> E[配置 submodule: themes/loveit, public]
-    E --> F[创建测试博客]
-    F --> G[创建 GitHub Personal Token]
-    G --> H[配置 GitHub Actions 自动部署]
-    H --> I[配置多语言]
-    I --> J[集成 Algolia 搜索]
-    J --> K[修改 Action 推送 Algolia 索引]
-    K --> L[配置 Giscus 评论系统]
+    A[Install Hugo] --> B[Create GitHub source repo]
+    B --> C[Create GitHub deploy repo]
+    C --> D[Initialize blog with Hugo]
+    D --> E[Configure submodules: themes/loveit, public]
+    E --> F[Create a test post]
+    F --> G[Create GitHub Personal Token]
+    G --> H[Configure GitHub Actions for auto-deploy]
+    H --> I[Configure multilingual support]
+    I --> J[Integrate Algolia search]
+    J --> K[Update Action to push Algolia index]
+    K --> L[Configure Giscus comment system]
 {{< /mermaid >}}
 
 > 以上流程图可视化了从本地环境准备到自动化部署和评论系统集成的完整步骤。
