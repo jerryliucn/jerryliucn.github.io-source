@@ -70,14 +70,15 @@ jobs:
     #       Write-Output "Public directory structure:"
     #       tree public
 
+
+
+      - name: Build with Hugo (production)
+        run: hugo --environment production --noBuildLock
+		
       - name: Show zh-cn post index.html
         run: |
           Write-Output "public/zh-cn/posts/hugo-algolia-search/index.html content:"
           Get-Content public/zh-cn/posts/hugo-algolia-search/index.html
-
-      - name: Build with Hugo (production)
-        run: hugo --environment production --noBuildLock
-
       - name: Show LoveIt theme directory structure
         run: |
           Write-Output "themes/LoveIt directory structure:"
