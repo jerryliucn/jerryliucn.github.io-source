@@ -2,9 +2,11 @@
 {{- $count := (.Scratch.Get "this").count | default 1 -}}
 {{- $id := printf "id-%d" $count -}}
 {{- $count | add 1 | .Scratch.SetInMap "this" "count" -}}
-{{ warnf "id.html before merge: id=%v, Content=%v, Scratch.this(before)=%v" $id .Content ($.Scratch.Get "this") }}
+
 {{- with .Content -}}
-    {{- dict $id . | dict "data" | dict "config" | merge ($.Scratch.Get "this") | $.Scratch.Set "this" -}}
+  {{ warnf "id.html before: config=%v" ($.Scratch.Get "this").config }}
+  {{- dict $id . | dict "data" | dict "config" | merge ($.Scratch.Get "this") | $.Scratch.Set "this" -}}
+  {{ warnf "id.html after: config=%v" ($.Scratch.Get "this").config }}
 {{- end -}}
-{{ warnf "id.html after merge: Scratch.this(after)=%v" ($.Scratch.Get "this") }}
+
 {{- return $id -}}
