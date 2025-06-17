@@ -26,7 +26,6 @@ jobs:
       - name: Clean public directory
         run: |
           if (Test-Path public) { Remove-Item -Recurse -Force public/* }
-          
       - name: Clean resources directory
         run: |
           if (Test-Path resources) { Remove-Item -Recurse -Force resources/* }
