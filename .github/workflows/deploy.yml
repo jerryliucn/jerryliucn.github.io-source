@@ -59,6 +59,11 @@ jobs:
       - name: Upload en Algolia index
         run: npx algolia-uploader
 
+      - name: Show public directory structure
+        run: |
+          echo "Public directory structure:" 
+          tree public || find public
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
