@@ -1,6 +1,10 @@
 {{ warnf "id.html debug: input = %v" . }}
 
-{{/* 你可以在这里继续实现 id.html 的原有逻辑，或仅用于调试 */}}
-
-{{/* 示例返回值，可根据主题原有实现调整 */}}
-{{ return "debug-id" }}
+{{- /* ID */ -}}
+{{- $count := (.Scratch.Get "this").count | default 1 -}}
+{{- $id := printf "id-%d" $count -}}
+{{- $count | add 1 | .Scratch.SetInMap "this" "count" -}}
+{{- with .Content -}}
+    {{- dict $id . | dict "data" | dict "config" | merge ($.Scratch.Get "this") | $.Scratch.Set "this" -}}
+{{- end -}}
+{{- return $id -}}
