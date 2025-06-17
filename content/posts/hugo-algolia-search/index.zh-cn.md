@@ -22,17 +22,17 @@ og_title = "hugo-algolia-search"
 ##  GitHub 博客搭建流程示意图
 {{< mermaid >}}
 flowchart TD
-A[安装 Hugo] --> B[创建GitHub源码仓库]
-B --> C[创建GitHub发布仓库]
-C --> D[用Hugo初始化博客]
-D --> E[配置子模块]
-E --> F[创建测试文章]
-F --> G[创建部署token]
-G --> H[配置自动部署]
-H --> I[配置多语言支持]
-I --> J[集成Algolia搜索]
-J --> K[更新Action推送Algolia索引]
-K --> L[配置Giscus评论系统]
+	A[安装 Hugo] --> B[创建GitHub源码仓库]
+	B --> C[创建GitHub发布仓库]
+	C --> D[用Hugo初始化博客]
+	D --> E[配置子模块]
+	E --> F[创建测试文章]
+	F --> G[创建部署token]
+	G --> H[配置自动部署]
+	H --> I[配置多语言支持]
+	I --> J[集成Algolia搜索]
+	J --> K[更新Action推送Algolia索引]
+	K --> L[配置Giscus评论系统]
 {{< /mermaid >}}
 
 > 以上流程图可视化了从本地环境准备到自动化部署和评论系统集成的完整步骤。

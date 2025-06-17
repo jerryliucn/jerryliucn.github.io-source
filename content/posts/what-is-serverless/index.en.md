@@ -3,6 +3,7 @@ date = '2025-06-14'
 draft = false
 title = 'Serverless'
 tags = ["serverless", "cloud native", "architecture"]
+categories = ["Tech Summury"]
 og_title = "serverless"
 +++
 

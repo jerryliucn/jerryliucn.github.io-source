@@ -101,21 +101,14 @@ defaultContentLanguage = "zh-cn"
     absoluteURL = false
   [params.cdn]
     data = "jsdmirror.yml"
-[outputs]
-  home = ["HTML", "RSS", "JSON"]
-  section = ["HTML", "RSS"]
-  taxonomy = ["HTML", "RSS"]
-
-[outputFormats.JSON]
-  mediaType = "application/json"
-  baseName = "algolia"
-  isPlainText = true
-  notAlternative = true
-
-[taxonomies]
-  tag = "tags"
-  category = "categories"
- [params.analytics]
+  [params.analytics]
     enable = true
     [params.analytics.yandexMetrica]
       id = "102717317"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[markup]
+  [markup.highlight]
+    noClasses = false
