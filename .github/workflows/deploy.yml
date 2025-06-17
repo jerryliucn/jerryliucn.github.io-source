@@ -25,14 +25,10 @@ jobs:
 
       - name: Clean public directory
         run: |
-<<<<<<< HEAD
           if (Test-Path public) { Remove-Item -Recurse -Force public/* }
       - name: Clean resources directory
         run: |
           if (Test-Path resources) { Remove-Item -Recurse -Force resources/* }
-=======
-          if [ -d public ]; then rm -rf public/*; fi
->>>>>>> parent of 11aaf9f (重新构建)
 
     #   - name: Build with Hugo (production)
     #     run: hugo --environment production --noBuildLock
