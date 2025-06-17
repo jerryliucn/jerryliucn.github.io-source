@@ -97,8 +97,6 @@ defaultContentLanguageInSubdir = true
     snippetLength = 30
     highlightTag = "em"
     absoluteURL = false
-  [params.page.library.js]
-    mermaid = "https://cdn.jsdelivr.net/npm/mermaid@9.1.3/dist/mermaid.min.js"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]

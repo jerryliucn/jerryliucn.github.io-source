@@ -71,7 +71,12 @@ jobs:
 
       - name: Build with Hugo (production)
         run: hugo --environment production
-        
+
+      - name: Show LoveIt theme directory structure
+        run: |
+          echo "themes/LoveIt directory structure:"
+          tree themes/LoveIt || find themes/LoveIt
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
