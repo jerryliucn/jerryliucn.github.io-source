@@ -14,6 +14,16 @@
 				"${input:commitMessage}"
 			],
 			"group": "build"
+		},
+		{
+			"label": "git pull with retry",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-Command",
+				"for ($i=1; $i -le 30; $i++) { if (git pull) { break } ; Start-Sleep -Seconds 2 }"
+			],
+			"group": "build"
 		}
 	],
 	"inputs": [

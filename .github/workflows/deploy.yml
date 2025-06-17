@@ -30,50 +30,50 @@ jobs:
         run: |
           if (Test-Path resources) { Remove-Item -Recurse -Force resources/* }
 
-      - name: Build with Hugo (production)
-        run: hugo --environment production --noBuildLock
+    #   - name: Build with Hugo (production)
+    #     run: hugo --environment production --noBuildLock
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+    #   - name: Install Node.js
+    #     uses: actions/setup-node@v4
+    #     with:
+    #       node-version: '20'
 
-      - name: Install algolia-uploader
-        run: npm install -D algolia-uploader
+    #   - name: Install algolia-uploader
+    #     run: npm install -D algolia-uploader
 
-      - name: Create .env for zh Algolia index
-        run: |
-          Add-Content .env "ALGOLIA_APP_ID=${{ secrets.ALGOLIA_APP_ID }}"
-          Add-Content .env "ALGOLIA_ADMIN_API_KEY=${{ secrets.ALGOLIA_ADMIN_API_KEY }}"
-          Add-Content .env "ALGOLIA_INDEX_NAME=${{ secrets.ALGOLIA_INDEX_NAME_ZH }}"
-          Add-Content .env "DATA_DIR=public/zh-cn"
+    #   - name: Create .env for zh Algolia index
+    #     run: |
+    #       Add-Content .env "ALGOLIA_APP_ID=${{ secrets.ALGOLIA_APP_ID }}"
+    #       Add-Content .env "ALGOLIA_ADMIN_API_KEY=${{ secrets.ALGOLIA_ADMIN_API_KEY }}"
+    #       Add-Content .env "ALGOLIA_INDEX_NAME=${{ secrets.ALGOLIA_INDEX_NAME_ZH }}"
+    #       Add-Content .env "DATA_DIR=public/zh-cn"
 
-      - name: Upload zh Algolia index
-        run: npx algolia-uploader
+    #   - name: Upload zh Algolia index
+    #     run: npx algolia-uploader
 
-      - name: Clean .env before creating for en Algolia index
-        run: |
-          if (Test-Path .env) { Remove-Item .env }
+    #   - name: Clean .env before creating for en Algolia index
+    #     run: |
+    #       if (Test-Path .env) { Remove-Item .env }
 
-      - name: Create .env for en Algolia index
-        run: |
-          Add-Content .env "ALGOLIA_APP_ID=${{ secrets.ALGOLIA_APP_ID }}"
-          Add-Content .env "ALGOLIA_ADMIN_API_KEY=${{ secrets.ALGOLIA_ADMIN_API_KEY }}"
-          Add-Content .env "ALGOLIA_INDEX_NAME=${{ secrets.ALGOLIA_INDEX_NAME_EN }}"
-          Add-Content .env "DATA_DIR=public/en"
+    #   - name: Create .env for en Algolia index
+    #     run: |
+    #       Add-Content .env "ALGOLIA_APP_ID=${{ secrets.ALGOLIA_APP_ID }}"
+    #       Add-Content .env "ALGOLIA_ADMIN_API_KEY=${{ secrets.ALGOLIA_ADMIN_API_KEY }}"
+    #       Add-Content .env "ALGOLIA_INDEX_NAME=${{ secrets.ALGOLIA_INDEX_NAME_EN }}"
+    #       Add-Content .env "DATA_DIR=public/en"
 
-      - name: Upload en Algolia index
-        run: npx algolia-uploader
+    #   - name: Upload en Algolia index
+    #     run: npx algolia-uploader
 
-      - name: Show public directory structure
-        run: |
-          Write-Output "Public directory structure:"
-          tree public
+    #   - name: Show public directory structure
+    #     run: |
+    #       Write-Output "Public directory structure:"
+    #       tree public
 
-      - name: Show zh-cn post index.html
-        run: |
-          Write-Output "public/zh-cn/posts/hugo-algolia-search/index.html content:"
-          Get-Content public/zh-cn/posts/hugo-algolia-search/index.html
+    #   - name: Show zh-cn post index.html
+    #     run: |
+    #       Write-Output "public/zh-cn/posts/hugo-algolia-search/index.html content:"
+    #       Get-Content public/zh-cn/posts/hugo-algolia-search/index.html
 
       - name: Build with Hugo (production)
         run: hugo --environment production --noBuildLock
