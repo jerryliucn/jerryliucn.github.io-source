@@ -69,6 +69,9 @@ jobs:
           echo "public/zh-cn/posts/hugo-algolia-search/index.html content:"
           cat public/zh-cn/posts/hugo-algolia-search/index.html
 
+      - name: Build with Hugo (production)
+        run: hugo --environment production
+        
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
