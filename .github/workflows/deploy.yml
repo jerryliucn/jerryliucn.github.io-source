@@ -16,7 +16,7 @@ jobs:
 
       - name: Download Hugo extended
         run: |
-          Invoke-WebRequest -Uri "https://github.com/gohugoio/hugo/releases/download/v0.147.8/hugo_extended_withdeploy_0.147.8_windows-amd64.zip" -OutFile "hugo.zip"
+          Invoke-WebRequest -Uri "https://github.com/gohugoio/hugo/releases/download/v0.145.0/hugo_extended_withdeploy_0.145.0_windows-amd64.zip" -OutFile "hugo.zip"
           New-Item -ItemType Directory -Path hugoApp
           Expand-Archive -Path "hugo.zip" -DestinationPath "hugoApp"
           echo "$PWD/hugoApp" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append

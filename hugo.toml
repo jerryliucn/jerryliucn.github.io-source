@@ -112,3 +112,10 @@ defaultContentLanguage = "zh-cn"
 [markup]
   [markup.highlight]
     noClasses = false
+
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+
+[security]
+  enableInlineShortcodes = true
