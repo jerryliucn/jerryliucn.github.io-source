@@ -17,7 +17,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.128.0'
+          hugo-version: '0.147.8'
           extended: true
 
       - name: Clean public directory
@@ -63,6 +63,11 @@ jobs:
         run: |
           echo "Public directory structure:" 
           tree public || find public
+
+      - name: Show zh-cn post index.html
+        run: |
+          echo "public/zh-cn/posts/hugo-algolia-search/index.html content:"
+          cat public/zh-cn/posts/hugo-algolia-search/index.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
