@@ -98,7 +98,7 @@ defaultContentLanguageInSubdir = true
     highlightTag = "em"
     absoluteURL = false
   [params.cdn]
-    data = "jsdelivr.yml"
+    data = "jsdmirror.yml"
 [outputs]
   home = ["HTML", "RSS", "JSON"]
   section = ["HTML", "RSS"]
